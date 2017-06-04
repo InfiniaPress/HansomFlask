@@ -8,6 +8,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
+      html{
+        height:100%;
+      }
       .navbar{
         margin-bottom:0px;
       }
@@ -40,13 +43,25 @@
     </nav>
     <script>
       $("#undo").click(function(){
-        
+        try{
+          document.execCommand("undo"); 
+        }catch(err){
+          alert("Your browser does not support undo! Use control + Z.");
+        }
       })
-      $(window).keypress(function(event) {
-        if (!(event.which == 115 && event.ctrlKey) && !(event.which == 19)) return true;
-        alert("Ctrl-S pressed");
-        event.preventDefault();
-        return false;
+      $("#redo").click(function(){
+        try{
+          document.execCommand("redo");
+        }catch(err){
+          alert("Your browser does not support redo! Use control + Y.");
+        }
+      })
+      $(document).on('keydown', function(e){
+          if(e.ctrlKey && e.which === 83){ // Check for the Ctrl key being pressed, and if the key = [S] (83)
+              console.log('Ctrl+S!');
+              e.preventDefault();
+              return false;
+          }
       });
     </script>
     <div id="note" contenteditable="true">
