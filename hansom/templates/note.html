@@ -38,6 +38,13 @@
           <li id="undo" title="undo"><a href="#"><span class="glyphicon glyphicon-menu-left"></span></a></li>
           <li id="redo" title="redo"><a href="#"><span class="glyphicon glyphicon-menu-right"></span></a></li>
           <li id="save" title="save"><a href="#"><span class="glyphicon glyphicon-save"></span></a></li>
+          <li id="bold" title="bold"><a href="#"><span class="glyphicon glyphicon-bold"></span></a></li>
+          <li id="italic" title="italic"><a href="#"><span class="glyphicon glyphicon-italic"></span></a></li>
+          <li id="underline" title="underline"><a href="#"><span class="glyphicon glyphicon-text-width"></span></a></li>
+          <li id="leftAlign" title="left align"><a href="#"><span class="glyphicon glyphicon-align-left"></span></a></li>
+          <li id="centreAlign" title="centre align"><a href="#"><span class="glyphicon glyphicon-align-center"></span></a></li>
+          <li id="rightAlign" title="right align"><a href="#"><span class="glyphicon glyphicon-align-right"></span></a></li>
+          <li id="fullAlign" title="full align"><a href="#"><span class="glyphicon glyphicon-align-justify"></span></a></li>
         </ul>
       </div>
     </nav>
@@ -54,6 +61,55 @@
           document.execCommand("redo");
         }catch(err){
           alert("Your browser does not support redo! Use control + Y.");
+        }
+      });
+      $("#bold").click(function(){
+        try{
+          document.execCommand("bold"); 
+        }catch(err){
+          alert("Your browser does not support bold! Use control + B.");
+        }
+      })
+      $("#italic").click(function(){
+        try{
+          document.execCommand("italic"); 
+        }catch(err){
+          alert("Your browser does not support undo! Use control + I.");
+        }
+      })
+      $("#underline").click(function(){
+        try{
+          document.execCommand("underline"); 
+        }catch(err){
+          alert("Your browser does not support underline! Use control + U.");
+        }
+      })
+      $("#leftAlign").click(function(){
+        try{
+          document.execCommand("justifyleft"); 
+        }catch(err){
+          alert("Your browser does not support alignments!");
+        }
+      })
+      $("#centreAlign").click(function(){
+        try{
+          document.execCommand("justifyCenter"); 
+        }catch(err){
+          alert("Your browser does not support alignments!");
+        }
+      })
+      $("#rightAlign").click(function(){
+        try{
+          document.execCommand("justifyRight"); 
+        }catch(err){
+          alert("Your browser does not support alignments!");
+        }
+      })
+      $("#fullAlign").click(function(){
+        try{
+          document.execCommand("justifyFull"); 
+        }catch(err){
+          alert("Your browser does not support alignments!");
         }
       })
       $(document).on('keydown', function(e){
