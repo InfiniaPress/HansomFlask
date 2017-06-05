@@ -21,9 +21,8 @@
         height:100%;
         top:0px;
         left:0px;
-        z-index:1000;
+        font-size:16px;
       }
-
     </style>
   </head>
   
@@ -45,6 +44,13 @@
           <li id="centreAlign" title="centre align"><a href="#"><span class="glyphicon glyphicon-align-center"></span></a></li>
           <li id="rightAlign" title="right align"><a href="#"><span class="glyphicon glyphicon-align-right"></span></a></li>
           <li id="fullAlign" title="full align"><a href="#"><span class="glyphicon glyphicon-align-justify"></span></a></li>
+          <li class="dropdown" title="font size"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-text-size"></span><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li id="largeFont" style="font-size:25px;"><a href="#">Large</a></li>
+              <li id="regularFont" style="font-size:16px;"><a href="#">Regular</a></li>
+              <li id="smallFont" style="font-size:12px;"><a href="#">Small</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </nav>
@@ -112,6 +118,48 @@
           alert("Your browser does not support alignments!");
         }
       })
+      $("#largeFont").click(function(){
+        try{
+          document.execCommand("fontSize", false, "6");
+          var fontElements = document.getElementsByTagName("font");
+          for (var i = 0, len = fontElements.length; i < len; ++i) {
+              if (fontElements[i].size == "6") {
+                  fontElements[i].removeAttribute("size");
+                  fontElements[i].style.fontSize = "25px";
+              }
+          }
+        }catch(err){
+          alert("Your browser does not support different font sizes!");
+        }
+      });
+      $("#regularFont").click(function(){
+        try{
+          document.execCommand("fontSize", false, "4");
+          var fontElements = document.getElementsByTagName("font");
+          for (var i = 0, len = fontElements.length; i < len; ++i) {
+            if (fontElements[i].size == "4") {
+               fontElements[i].removeAttribute("size");
+               fontElements[i].style.fontSize = "16px";
+            }
+          }
+        }catch(err){
+          alert("Your browser does not support different font sizes!");
+        }
+      });
+      $("#smallFont").click(function(){
+        try{
+          document.execCommand("fontSize", false, "2");
+          var fontElements = document.getElementsByTagName("font");
+          for (var i = 0, len = fontElements.length; i < len; ++i) {
+            if (fontElements[i].size == "2") {
+               fontElements[i].removeAttribute("size");
+               fontElements[i].style.fontSize = "12px";
+            }
+          }
+        }catch(err){
+          alert("Your browser does not support different font sizes!");
+        }
+      });
       $(document).on('keydown', function(e){
           if(e.ctrlKey && e.which === 83){ // Check for the Ctrl key being pressed, and if the key = [S] (83)
               console.log('Ctrl+S!');
