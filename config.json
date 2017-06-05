@@ -1,0 +1,8 @@
+{
+  "db": {
+    "username": "Fake User",
+    "password": "Fakepass",
+    "hostname": "fakehost",
+    "dbname": "fakedb"
+  }
+}
