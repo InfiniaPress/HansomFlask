@@ -1,20 +1,20 @@
-from flask import Flask, redirect, render_template, request, url_for
-from hansom.hansom.database import db
+from flask import Flask, render_template, request
+from flask_pymongo import PyMongo
+
+from hansom.database.db import PyMongoDB_URI
+
 app = Flask(__name__)
+database = PyMongo(app)
+
+app.config['MONGO_URI'] = PyMongoDB_URI
+
+
 
 @app.route("/", methods=["GET", "POST"])
 
 def index():
     if request.method == "GET":
         return render_template("main.html")
-app.config["DEBUG"] = True
-
-app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
 
 
-#class Note(db.Model):
-#
- #   __tablename__ = "notes"
-#
- #   id = db.Column(db.Integer, primary_key=True)
-  #  content = db.Column(db.String(4096))
+
