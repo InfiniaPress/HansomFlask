@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63ff1f95-2450-4feb-aecf-60272152f3df" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hansom/static/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hansom/static/note.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hansom/static/note.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hansom/Hansom.py" afterPath="$PROJECT_DIR$/hansom/Hansom.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hansom/templates/note.html" afterPath="$PROJECT_DIR$/hansom/templates/note.html" />
-    </list>
+    <list default="true" id="63ff1f95-2450-4feb-aecf-60272152f3df" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -518,12 +511,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497182201362</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="change of plans we're using apache cassandra now">
+      <created>1497279257888</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1497279257888</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27665246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -575,7 +574,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Mini changes + MongoDB init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mini changes + MongoDB init" />
+    <MESSAGE value="change of plans we're using apache cassandra now" />
+    <option name="LAST_COMMIT_MESSAGE" value="change of plans we're using apache cassandra now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
