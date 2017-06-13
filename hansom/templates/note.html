@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="static/ajax.js"></script>
     <link rel="stylesheet" href="{{ url_for('static',filename='notes.css') }}">
   </head>
   
@@ -49,6 +48,37 @@
         
     </div>
     <script>
+      var contents;
+      var name;
+      var noteName = prompt("What is your note name?");
+      
+      if(!noteName){
+        noteName = prompt("Making a new note? What do you want to name it?")
+          $.ajax({
+              url: '/newNote',
+              data: JSON.stringify({"name": noteName,"contents":""}, null, '\t'),
+              type: 'POST',
+              success: function(response) {
+                  console.log(response);
+              },
+              error: function(error) {
+                  console.log(error);
+              }
+          });
+      }else{
+          $.ajax({
+              url: '/',
+              data: JSON.stringify({"name": noteName,"contents":"",}, null, '\t'),,
+              type: 'POST',
+              success: function(response) {
+                  console.log(response);
+              },
+              error: function(error) {
+                  console.log(error);
+              }
+          });
+      }
+      
       $("#undo").click(function(){
         try{
           document.execCommand("undo"); 
@@ -161,7 +191,19 @@
           }
       });
       $("#save").click(function(){
-        $(".noteContents").submit();
+          contents = $('#note').val();
+          name = $('#noteName').val();
+          $.ajax({
+              url: '/',
+              data: JSON.stringify({"name":name,"contents":contents,},null,"\t")
+              type: 'POST',
+              success: function(response) {
+                  console.log(response);
+              },
+              error: function(error) {
+                  console.log(error);
+              }
+          });
       });
     </script>
     <div id="note" name="noteContents">
