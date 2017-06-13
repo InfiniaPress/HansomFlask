@@ -20,11 +20,11 @@ $('body').on('focus', '[contenteditable]', function() {
 
 $(function() {
         $('#save').click(function() {
-          var name = $('#note').val();
-          var pass = $('#txtPassword').val();
+          contents = $('#note').val();
+          name = $('#noteName').val();
           $.ajax({
-              url: '/signUpUser',
-              data: $('form').serialize(),
+              url: '/',
+              data: {"name":name,"contents":contents,},
               type: 'POST',
               success: function(response) {
                   console.log(response);
