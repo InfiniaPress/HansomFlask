@@ -4,20 +4,6 @@
 var contents = "";
 var name = "";
 
-$('body').on('focus', '[contenteditable]', function() {
-    var $this = $(this);
-    $this.data('before', $this.html());
-    contents = $this;
-
-}).on('blur keyup paste input', '[contenteditable]', function() {
-    var $this = $(this);
-    if ($this.data('before') !== $this.html()) {
-        $this.data('before', $this.html());
-        $this.trigger('change');
-    }
-    contents = $this;
-});
-
 $(function() {
         $('#save').click(function() {
           contents = $('#note').val();

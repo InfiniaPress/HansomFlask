@@ -12,3 +12,10 @@ PyMongoDB_URI = "mongodb://{username}:{password}@{hostname}/{databasename}".form
     databasename=conf['db']['dbname'],
 )
 
+
+dbcluster = Cluster([conf['db']['hostname']])
+dbsess = dbcluster.connect(conf['db']['dbname'])
+
+
+class Note():
+  def __init__

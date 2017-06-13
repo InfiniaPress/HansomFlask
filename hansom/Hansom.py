@@ -15,7 +15,7 @@ note = Note("","")
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "GET":
-        return render_template("main.html")
+        return render_template("main.html",note=note)
     note.name = 
     note.contents = 
     return redirect(url_for('index'))
