@@ -1,3 +1,4 @@
+from cassandra.cluster import Cluster
 import json
 
 
