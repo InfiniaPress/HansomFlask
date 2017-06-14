@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63ff1f95-2450-4feb-aecf-60272152f3df" name="Default" comment="change of plans we're using apache cassandra now">
+    <list default="true" id="63ff1f95-2450-4feb-aecf-60272152f3df" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hansom/Hansom.py" afterPath="$PROJECT_DIR$/hansom/Hansom.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hansom/static/ajax.js" afterPath="$PROJECT_DIR$/hansom/static/ajax.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hansom/templates/signin.html" afterPath="$PROJECT_DIR$/hansom/templates/signin.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,7 +14,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/HansomFlask$db.coverage" NAME="db Coverage Results" MODIFIED="1496839632947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hansom/hansom/database" />
-    <SUITE FILE_PATH="coverage/HansomFlask$Hansom.coverage" NAME="Hansom Coverage Results" MODIFIED="1497439424667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hansom" />
+    <SUITE FILE_PATH="coverage/HansomFlask$Hansom.coverage" NAME="Hansom Coverage Results" MODIFIED="1497441602992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hansom" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -36,8 +34,8 @@
       <file leaf-file-name="Hansom.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hansom/Hansom.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="799">
+              <caret line="47" column="13" lean-forward="false" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -108,9 +106,9 @@
         <option value="$PROJECT_DIR$/hansom/noupload.config.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/hansom/database/db.py" />
-        <option value="$PROJECT_DIR$/hansom/Hansom.py" />
         <option value="$PROJECT_DIR$/hansom/templates/signin.html" />
         <option value="$PROJECT_DIR$/hansom/static/ajax.js" />
+        <option value="$PROJECT_DIR$/hansom/Hansom.py" />
       </list>
     </option>
   </component>
@@ -630,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497279257888</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="mini minor mini mini sabfuisadbfsadigiosiodgsd changes">
+      <created>1497441540025</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1497441540025</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -643,7 +648,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -688,7 +693,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Mini changes + MongoDB init" />
     <MESSAGE value="change of plans we're using apache cassandra now" />
-    <option name="LAST_COMMIT_MESSAGE" value="change of plans we're using apache cassandra now" />
+    <MESSAGE value="mini minor mini mini sabfuisadbfsadigiosiodgsd changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="mini minor mini mini sabfuisadbfsadigiosiodgsd changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1134,8 +1140,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hansom/Hansom.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="799">
+          <caret line="47" column="13" lean-forward="false" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>

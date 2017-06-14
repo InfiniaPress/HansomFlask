@@ -42,3 +42,7 @@ def newNote():
   else:
     note.contents = getNote(note.name)
     return render_template("note.html",note=note)
+
+
+if __name__ == "__main__":
+    app.run()
