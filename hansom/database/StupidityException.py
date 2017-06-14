@@ -1,0 +1,2 @@
+class WeirdException(Exception):
+  pass

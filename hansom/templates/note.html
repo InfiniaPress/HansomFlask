@@ -21,6 +21,8 @@
           {% endif %}
         </div>
         <ul class="nav navbar-nav">
+          <li id="open" title="open another note"><a href="#"><span class="glyphicon glyphicon-open"></span></a></li>
+          <li id="new" title="create a new note"><a href="#"><span class="glyphicon glyphicon-new-window"></span></a></li>
           <li onclick="print()" title="print"><a href="#"><span class="glyphicon glyphicon-print"></span></a></li>
           <li id="undo" title="undo"><a href="#"><span class="glyphicon glyphicon-menu-left"></span></a></li>
           <li id="redo" title="redo"><a href="#"><span class="glyphicon glyphicon-menu-right"></span></a></li>
@@ -48,36 +50,6 @@
         
     </div>
     <script>
-      var contents;
-      var name;
-      var noteName = prompt("What is your note name?");
-      
-      if(!noteName){
-        noteName = prompt("Making a new note? What do you want to name it?")
-          $.ajax({
-              url: '/newNote',
-              data: JSON.stringify({"name": noteName,"contents":""}, null, '\t'),
-              type: 'POST',
-              success: function(response) {
-                  console.log(response);
-              },
-              error: function(error) {
-                  console.log(error);
-              }
-          });
-      }else{
-          $.ajax({
-              url: '/',
-              data: JSON.stringify({"name": noteName,"contents":"",}, null, '\t'),,
-              type: 'POST',
-              success: function(response) {
-                  console.log(response);
-              },
-              error: function(error) {
-                  console.log(error);
-              }
-          });
-      }
       
       $("#undo").click(function(){
         try{

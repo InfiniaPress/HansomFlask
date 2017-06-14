@@ -1,5 +1,6 @@
 from cassandra.cluster import Cluster
 import json
+from StupidityException import WeirdException
 
 
 with open("../../../config.json") as cfg:
@@ -28,7 +29,7 @@ class DBNote():
       """,
       (self.name, self.contents)
     )
-    return stmt
+    return True
   
   
 def getNote(name):
@@ -38,5 +39,14 @@ def getNote(name):
     WHERE username = %s
     """,
     (name)
+    
   )
-  return stmt
+  return stmt['document']
+def checkNoteExists(name):
+  stmt = dbsess.execute("SELECT * FROM hansomdata WHERE username = %s")
+  if len(stmt) != 0:
+    return False
+  elif len(stmt) == 0:
+    return True
+  else:
+    raise WeirdException("Cassandra didn't return a proper row. Wat")

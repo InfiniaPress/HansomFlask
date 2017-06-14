@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from hansom.database.db import DBNote, dbsess, getNote
+from hansom.database.db import DBNote, dbsess, getNote, checkNoteExists
 
 app = Flask(__name__)
 
@@ -12,24 +12,33 @@ class Note:
     self.contents = contents
     
 #DBnote = DBNote("name","contents", dbsess)
-note = Note("name","contents")
+note = Note("","")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "GET":
-        return render_template("main.html",note=note)
-    note.name = #user input
-    note.contents = getNote(note.name)
-    return redirect(url_for('index'))
+        return render_template("signin.html")
+    note.name = request.json["name"]
+    
+    #get note from DB and check if exists
+    if checkNoteExists(note.name):
+      note.contents = getNote(note.name)
+      return render_template("note.html",note=note)
+    else:
+      return render_template("signin.html",notExists="yes")
   
 @app.route("/saveNote", methods=["POST"])
 def save():
     note.name = request.json["name"]
     note.contents = request.json["contents"]
-    notes = Note(note.name, note.contents)
+    notes = Note(note.name, note.contents, dbsess)
     #notes.
 
     
 @app.route("/newNote", methods=["POST"])
 def newNote():
-  if 
+  if checkNoteExists(note.name):
+    return render_template("signin.html",exists="yes")
+  else:
+    note.contents = getNote(note.name)
+    return render_template("note.html",note=note)
