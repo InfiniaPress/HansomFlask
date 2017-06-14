@@ -7,26 +7,26 @@ app = Flask(__name__)
 #app.config['MONGO_URI'] = PyMongoDB_URI
 
 class Note:
-  def __init__(self, name, contents):
-    self.name = name
-    self.contents = contents
-    
+    def __init__(self, name, contents):
+        self.name = name
+        self.contents = contents
+
 #DBnote = DBNote("name","contents", dbsess)
-note = Note("","")
+note = Note("", "")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "GET":
         return render_template("signin.html")
-    note.name = request.json["name"]
-    
-    #get note from DB and check if exists
-    if checkNoteExists(note.name):
-      note.contents = getNote(note.name)
-      return render_template("note.html",note=note)
-    else:
-      return render_template("signin.html",notExists="yes")
-  
+    elif request.method == "POST":
+        note.name = request.json["name"]
+        #get note from DB and check if exists
+        if checkNoteExists(note.name):
+            note.contents = getNote(note.name)
+            return render_template("note.html",note=note)
+        else:
+            return render_template("signin.html",notExists="yes")
+
 @app.route("/saveNote", methods=["POST"])
 def save():
     note.name = request.json["name"]
@@ -34,11 +34,18 @@ def save():
     notes = DBNote(note.name, note.contents, dbsess)
     #notes.
 
-    
+
 @app.route("/newNote", methods=["POST"])
 def newNote():
-  if checkNoteExists(note.name):
-    return render_template("signin.html",exists="yes")
-  else:
-    note.contents = getNote(note.name)
-    return render_template("note.html",note=note)
+    note.name = request.json["name"]
+    note.contents = request.json["contents"]
+    if checkNoteExists(note.name):
+        note.contents = getNote(note.name)
+        return render_template("signin.html",exists="yes")
+    else:
+        n = DBNote(note.name, note.contents, dbsess)
+        n.updateDB()
+        return render_template("note.html",note=note)
+
+if __name__ == "__main__":
+    app.run()
