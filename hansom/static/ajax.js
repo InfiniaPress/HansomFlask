@@ -10,7 +10,7 @@ $(function() {
           name = $('#noteName').val();
           $.ajax({
               url: '/',
-              data: {"name":name,"contents":contents,},
+              data: {"name":name,"contents":contents},
               type: 'POST',
               success: function(response) {
                   console.log(response);
