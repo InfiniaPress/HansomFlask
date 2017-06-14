@@ -49,6 +49,7 @@
             url: '/openNote',
             data: JSON.stringify({"name": noteName,"contents":""}, null, '\t'),
             type: 'POST',
+            contentType: "application/json",
             success: function(response) {
                 console.log(response);
             },
@@ -64,6 +65,7 @@
             url: '/newNote',
             data: JSON.stringify({"name": noteName,"contents":""}, null, '\t'),
             type: 'POST',
+            contentType: "application/json",
             success: function(response) {
                 console.log(response);
             },

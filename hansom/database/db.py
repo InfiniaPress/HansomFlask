@@ -50,12 +50,14 @@ def getNote(name):
         (name, )
 
     )
-    return stmt.current_rows['document']
+    for row in stmt:
+        return row.document
+    #return stmt.current_rows['document']
 def checkNoteExists(name):
     stmt = dbsess.execute("SELECT * FROM hansomdata WHERE username = %s", (name, ))
     if len(stmt.current_rows) != 0:
-        return False
-    elif len(stmt.current_rows) == 0:
         return True
+    elif len(stmt.current_rows) == 0:
+        return False
     else:
         raise WeirdException("Cassandra didn't return a proper row. Wat")
