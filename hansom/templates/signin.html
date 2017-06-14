@@ -45,7 +45,7 @@
     var noteName = $("#name").val()
   $("#open").click(function(){
     $.ajax({
-              url: '/',
+              url: '/openNote',
               data: JSON.stringify({"name": noteName,"contents":"",}, null, '\t'),
               type: 'POST',
               success: function(response) {

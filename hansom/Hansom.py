@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
-from database.db import DBNote, dbsess, getNote, checkNoteExists
+from hansom.database.db import DBNote, dbsess, getNote, checkNoteExists
 
 app = Flask(__name__)
 
 
-#app.config['MONGO_URI'] = PyMongoDB_URI
+app.config['MONGO_URI'] = PyMongoDB_URI
 
 class Note:
   def __init__(self, name, contents):
@@ -18,6 +18,9 @@ note = Note("","")
 def index():
     if request.method == "GET":
         return render_template("signin.html")
+      
+@app.route("/openNote",methods=["POST"])   
+def open():
     note.name = request.json["name"]
     
     #get note from DB and check if exists
@@ -31,7 +34,7 @@ def index():
 def save():
     note.name = request.json["name"]
     note.contents = request.json["contents"]
-    notes = DBNote(note.name, note.contents, dbsess)
+    notes = Note(note.name, note.contents, dbsess)
     #notes.
 
     
