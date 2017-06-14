@@ -42,11 +42,11 @@
     {% if exists %}
     alert("A note with that name already exists!")
     {% endif %}
-    noteName = $("#name").val()
+    var noteName = $("#name").val()
   $("#open").click(function(){
     $.ajax({
               url: '/',
-              data: JSON.stringify({"name": noteName,"contents":"",}, null, '\t'),,
+              data: JSON.stringify({"name": noteName,"contents":"",}, null, '\t'),
               type: 'POST',
               success: function(response) {
                   console.log(response);
@@ -60,7 +60,7 @@
   $("#new").click(function(){
     $.ajax({
               url: '/newNote',
-              data: JSON.stringify({"name": noteName,"contents":""}, null, '\t'),
+              data: JSON.stringify({"name": noteName,"contents":"",}, null, '\t'),
               type: 'POST',
               success: function(response) {
                   console.log(response);
