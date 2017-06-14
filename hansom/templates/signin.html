@@ -51,6 +51,7 @@
             type: 'POST',
             contentType: "application/json",
             success: function(response) {
+                window.location = "/?openNote";
                 console.log(response);
             },
             error: function(error) {
