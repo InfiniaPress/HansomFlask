@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
-from hansom.database.db import DBNote, dbsess, getNote, checkNoteExists
+from database.db import DBNote, dbsess, getNote, checkNoteExists
 
 app = Flask(__name__)
 
 
-app.config['MONGO_URI'] = PyMongoDB_URI
+#app.config['MONGO_URI'] = PyMongoDB_URI
 
 class Note:
   def __init__(self, name, contents):
@@ -31,7 +31,7 @@ def index():
 def save():
     note.name = request.json["name"]
     note.contents = request.json["contents"]
-    notes = Note(note.name, note.contents, dbsess)
+    notes = DBNote(note.name, note.contents, dbsess)
     #notes.
 
     
