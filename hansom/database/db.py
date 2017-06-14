@@ -1,4 +1,5 @@
 from cassandra.cluster import Cluster
+from cassandra.auth import PlainTextAuthProvider
 import json
 from StupidityException import WeirdException
 
@@ -7,8 +8,9 @@ with open("../../../config.json") as cfg:
     conf = json.load(cfg)
 
 
-dbcluster = Cluster([conf['db']['hostname']])
+dbcluster = Cluster([conf['db']['hostname']], auth_provider=dbauth)
 dbsess = dbcluster.connect(conf['db']['dbname'])
+dbauth = PlainTextAuthProvider(username=conf['db']['username'], password=conf['db']['password'])
 
 
 class DBNote():
