@@ -16,3 +16,5 @@ This application requires Flask and Socket.IO
 4. Enter the cassandra directory, open the bin folder, and doubleclick on cassandra.bat
 
 5. Run `python db_setup.py`
+
+6. Run `python Hansom.py`
