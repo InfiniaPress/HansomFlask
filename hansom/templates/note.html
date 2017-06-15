@@ -49,6 +49,10 @@
     <div id="note" contenteditable="true" style="height: 1000px;">
         
     </div>
+    <div class="alert alert-success" role="alert">
+      <strong>Your note has been saved successfully!</strong><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    </div>
+
     <script>
       
       $("#undo").click(function(){
@@ -171,6 +175,7 @@
               type: 'POST',
               success: function(response) {
                   console.log(response);
+                  
               },
               error: function(error) {
                   console.log(error);
