@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{{ url_for('static',filename='notes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='note.css') }}">
   </head>
   
   <body>
@@ -44,10 +44,10 @@
         </ul>
       </div>
     </nav>
-    <script src="{{  url_for('static',filename='notes.css') }}"></script>
+
 
     <div id="note" contenteditable="true" style="height: 1000px;">
-        
+        {{  note.contents | safe}}
     </div>
     <div class="alert alert-success" role="alert">
       <strong>Your note has been saved successfully!</strong><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -167,15 +167,17 @@
           }
       });
       $("#save").click(function(){
-          contents = $('#note').val();
-          name = $('#noteName').val();
+          contents = $('#note').html();
+          name = $('#noteName').text();
+
           $.ajax({
               url: '/ajax/saveNote',
               data: JSON.stringify({"name":name,"contents":contents},null,"\t"),
+              contentType: "application/json",
               type: 'POST',
               success: function(response) {
                   console.log(response);
-                  
+
               },
               error: function(error) {
                   console.log(error);
@@ -183,8 +185,6 @@
           });
       });
     </script>
-    <div id="note" name="noteContents">
-        {{ note.contents }}
-    </div>
+
   </body>
 </html>

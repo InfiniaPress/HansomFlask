@@ -53,9 +53,10 @@
             success: function(response) {
                 //window.location = "/?openNote";
                 if(response === "The note does not exist!"){
-                  alert(response);//for testing if it works
+                    alert(response);//for testing if it works
                 }else{
-                  document.write(response);
+                    console.log(response)
+                    document.write(response);
                 }
             },
             error: function(error) {
@@ -73,9 +74,9 @@
             contentType: "application/json",
             success: function(response) {
                 if(response === "A note with that name already exists!"){
-                  alert(response)
+                    alert(response)
                 }else{
-                  document.write(response);
+                    document.write(response);
                 }
             },
             error: function(error) {

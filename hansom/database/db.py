@@ -26,38 +26,28 @@ class DBNote():
 
 
     def updateDB(self):
-        stmt = dbsess.execute(
+        stmt = dbsess.prepare(
             """
-            BATCH BEGIN;
-            UPDATE hansomdata
-            SET document = %s
-            WHERE username = %s IF EXISTS
-            INSERT INTO hansomdata (username, document)
-            VALUES (%s, %s) IF NOT EXISTS
-            BATCH END;
-            """,
-            (self.name, self.contents)
+            UPDATE hansomdata SET document = ? WHERE username = ?
+            """
         )
+        dbsess.execute(stmt, (self.contents, self.name))
+
         return True
 
 
 def getNote(name):
-    stmt = dbsess.execute(
-        """
-        SELECT * FROM hansomdata
-        WHERE username = %s
-        """,
-        (name, )
-
-    )
-    for row in stmt:
-        return row.document
+    stmt = dbsess.prepare("SELECT * FROM hansomdata WHERE username = ?")
+    rtn = dbsess.execute(stmt, (name, ))
+    for row in rtn:
+        return row[1]
     #return stmt.current_rows['document']
 def checkNoteExists(name):
-    stmt = dbsess.execute("SELECT * FROM hansomdata WHERE username = %s", (name, ))
-    if len(stmt.current_rows) != 0:
+    stmt = dbsess.prepare("SELECT * FROM hansomdata WHERE username = ?")
+    rtn = dbsess.execute(stmt, (name, ))
+    if len(rtn.current_rows) != 0:
         return True
-    elif len(stmt.current_rows) == 0:
+    elif len(rtn.current_rows) == 0:
         return False
     else:
         raise WeirdException("Cassandra didn't return a proper row. Wat")
