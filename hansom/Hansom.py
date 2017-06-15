@@ -35,6 +35,8 @@ def save():
     note.name = request.json["name"]
     note.contents = request.json["contents"]
     notes = DBNote(note.name, note.contents, dbsess)
+    notes.updateDB()
+    return "Saved"
 
 
 @app.route("/ajax/newNote", methods=["POST"])
@@ -44,7 +46,7 @@ def newNote():
         return "A note with that name already exists!"
     else:
         note.contents = getNote(note.name)
-        return render_template("note.html",note=note)
+        return render_template("note.html", note=note)
 
 
 if __name__ == "__main__":
