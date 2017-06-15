@@ -46,7 +46,7 @@
     $("#open").click(function(){
         var noteName = $("#name").val();
         $.ajax({
-            url: '/openNote',
+            url: '/ajax/openNote',
             data: JSON.stringify({"name": noteName,"contents":""}, null, '\t'),
             type: 'POST',
             contentType: "application/json",
@@ -67,7 +67,7 @@
     $("#new").click(function(){
         var noteName = $("#name").val();
         $.ajax({
-            url: '/newNote',
+            url: '/ajax/newNote',
             data: JSON.stringify({"name": noteName,"contents":""}, null, '\t'),
             type: 'POST',
             contentType: "application/json",

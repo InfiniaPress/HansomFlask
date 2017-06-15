@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Note {{ note_name }} | Hansom</title>
+    <title>Note {{ note.name }} | Hansom</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -166,7 +166,7 @@
           contents = $('#note').val();
           name = $('#noteName').val();
           $.ajax({
-              url: '/saveNote',
+              url: '/ajax/saveNote',
               data: JSON.stringify({"name":name,"contents":contents},null,"\t"),
               type: 'POST',
               success: function(response) {
@@ -179,7 +179,7 @@
       });
     </script>
     <div id="note" name="noteContents">
-        {{ note_contents }}
+        {{ note.contents }}
     </div>
   </body>
 </html>
