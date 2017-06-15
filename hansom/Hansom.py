@@ -8,7 +8,7 @@ class Note:
         self.name = name
         self.contents = contents
 
-#DBnote = DBNote("name","contents", dbsess)
+
 note = Note("","")
 
 @app.route("/", methods=["GET", "POST"])
@@ -17,28 +17,27 @@ def index():
         return render_template("signin.html")
 
 
-
-@app.route("/openNote", methods=["POST"])
+@app.route("/ajax/openNote", methods=["POST"])
 def open():
     note.name = request.json["name"]
-    #get note from DB and check if exists
+
+    # get note from DB and check if exists
+
     if checkNoteExists(note.name):
         note.contents = getNote(note.name)
-        print(note.contents)
         return render_template("note.html", note=note)
     else:
         return "The note does not exist!"
 
 
-@app.route("/saveNote", methods=["POST"])
+@app.route("/ajax/saveNote", methods=["POST"])
 def save():
     note.name = request.json["name"]
     note.contents = request.json["contents"]
     notes = DBNote(note.name, note.contents, dbsess)
-    #notes.
 
 
-@app.route("/newNote", methods=["POST"])
+@app.route("/ajax/newNote", methods=["POST"])
 def newNote():
     note.name = request.json["name"]
     if checkNoteExists(note.name):

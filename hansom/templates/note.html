@@ -167,7 +167,7 @@
           name = $('#noteName').val();
           $.ajax({
               url: '/saveNote',
-              data: JSON.stringify({"name":name,"contents":contents,},null,"\t")
+              data: JSON.stringify({"name":name,"contents":contents},null,"\t"),
               type: 'POST',
               success: function(response) {
                   console.log(response);
