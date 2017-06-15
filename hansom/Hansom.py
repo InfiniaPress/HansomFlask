@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, abort
 from hansom.database.db import DBNote, dbsess, getNote, checkNoteExists
 
 app = Flask(__name__)
@@ -25,7 +25,9 @@ def open():
     if checkNoteExists(note.name):
         note.contents = getNote(note.name)
         print(note.contents)
-        return jsonify(name=note.name, contents=note.contents)
+        return render_template("note.html", note=note)
+    else:
+        return "The note does not exist!"
 
 
 @app.route("/saveNote", methods=["POST"])
@@ -40,7 +42,7 @@ def save():
 def newNote():
     note.name = request.json["name"]
     if checkNoteExists(note.name):
-        return render_template("signin.html",exists="yes")
+        return "A note with that name already exists!"
     else:
         note.contents = getNote(note.name)
         return render_template("note.html",note=note)
