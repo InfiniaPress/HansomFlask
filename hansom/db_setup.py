@@ -15,13 +15,9 @@ else:
 dbauth = PlainTextAuthProvider(username=conf['db']['username'], password=conf['db']['password'])
 dbcluster = Cluster([conf['db']['hostname']], auth_provider=dbauth)
 dbsess = dbcluster.connect(conf['db']['dbname'])
-
-with open("setup.cql") as cql:
-    print("You are about to install the Hansom database. Some text will appear. Do not worry")
-    print(cql)
-    dbsess.execute(
-        """
-        CREATE KEYSPACE infiniahansom WITH REPLICATION = { 'class' : 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '1' } AND DURABLE_WRITES = true;
+cql1 = 
+"
+CREATE KEYSPACE infiniahansom WITH REPLICATION = { 'class' : 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '1' } AND DURABLE_WRITES = true;
 
 CREATE TABLE infiniahansom.hansomdata (
     username text,
@@ -41,6 +37,6 @@ CREATE TABLE infiniahansom.hansomdata (
    AND max_index_interval = 2048
    AND crc_check_chance = 1.0;
 
-    """
-    )
+"
+dbsess.execute(cql1)
     
