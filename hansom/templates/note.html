@@ -45,7 +45,7 @@
       </div>
     </nav>
     
-    <div class="alert alert-success" role="alert" id="saved">
+    <div class="alert alert-success" role="alert" id="saved" hidden="true">
       <strong>Your note has been saved successfully!</strong>
     </div>
 
@@ -199,6 +199,8 @@
                 if(response === "A note with that name already exists!"){
                     alert(response)
                 }else{
+                    document.close();
+                    document.open();
                     document.write(response);
                 }
             },
@@ -219,6 +221,8 @@
                 if(response === "The note does not exist!"){
                     alert(response);//for testing if it works
                 }else{
+                    document.close();
+                    document.open();
                     document.write(response);
                 }
             },
