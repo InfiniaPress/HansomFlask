@@ -42,6 +42,7 @@ def save():
 @app.route("/ajax/newNote", methods=["POST"])
 def newNote():
     note.name = request.json["name"]
+    note.contents = ""
     if checkNoteExists(note.name):
         return "A note with that name already exists!"
     else:
