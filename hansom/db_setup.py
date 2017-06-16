@@ -16,6 +16,11 @@ dbauth = PlainTextAuthProvider(username=conf['db']['username'], password=conf['d
 dbcluster = Cluster([conf['db']['hostname']], auth_provider=dbauth)
 dbsess = dbcluster.connect(conf['db']['dbname'])
 
+with open("setup_0.cql", "r") as setup0:
+    print("Running CQL for KEYSPACE_CREATE")
+    stp_cql0 = setup0.read().replace("\n", "")
+    dbsess.execute(stp_cql0)
+    setup0.close()
 
 with open("setup.cql", "r") as setup_cql:
     print("Loading CQL")
