@@ -11,7 +11,7 @@
   </head>
   
   <body>
-    <nav class="navbar navbar-inverse navbar-static-top" style="margin-bottom: 5%;">
+    <nav class="navbar navbar-inverse navbar-static-top">
       <div class="container-fluid">
         <div class="navbar-header">
           {% if note.name %}
@@ -44,17 +44,20 @@
         </ul>
       </div>
     </nav>
-
+    
+    <div class="alert alert-success" role="alert" id="saved">
+      <strong>Your note has been saved successfully!</strong>
+    </div>
 
     <div id="note" contenteditable="true" style="height: 1000px;">
-        {{  note.contents | safe}}
-    </div>
-    <div class="alert alert-success" role="alert">
-      <strong>Your note has been saved successfully!</strong><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{  note.contents | safe }}
     </div>
 
+
     <script>
-      
+      $(document).on("load",function(){
+        $("#saved").hide();
+      })
       $("#undo").click(function(){
         try{
           document.execCommand("undo"); 
@@ -177,12 +180,52 @@
               type: 'POST',
               success: function(response) {
                   console.log(response);
-
+                  $("#saved").show();
+                  setTimeout(function(){ $("#saved").hide() }, 2000);
               },
               error: function(error) {
                   console.log(error);
               }
           });
+      });
+      $("#new").click(function(){
+        var noteName = prompt("What is your new note's name?")
+        $.ajax({
+            url: '/ajax/newNote',
+            data: JSON.stringify({"name": noteName,"contents":""}, null, '\t'),
+            type: 'POST',
+            contentType: "application/json",
+            success: function(response) {
+                if(response === "A note with that name already exists!"){
+                    alert(response)
+                }else{
+                    document.write(response);
+                }
+            },
+            error: function(error) {
+                alert(error);
+            }
+        });
+      });
+      $("#open").click(function(){
+        var noteName = prompt("What note do you want to open?")
+        $.ajax({
+            url: '/ajax/openNote',
+            data: JSON.stringify({"name": noteName,"contents":""}, null, '\t'),
+            type: 'POST',
+            contentType: "application/json",
+            success: function(response) {
+                //window.location = "/?openNote";
+                if(response === "The note does not exist!"){
+                    alert(response);//for testing if it works
+                }else{
+                    document.write(response);
+                }
+            },
+            error: function(error) {
+                alert(error);
+            }
+        });
       });
     </script>
 

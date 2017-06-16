@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, abort
-from hansom.database.db import DBNote, dbsess, getNote, checkNoteExists
+from database.db import DBNote, dbsess, getNote, checkNoteExists
 
 app = Flask(__name__)
 
@@ -45,10 +45,8 @@ def newNote():
     if checkNoteExists(note.name):
         return "A note with that name already exists!"
     else:
-        note.contents = getNote(note.name)
         return render_template("note.html", note=note)
 
 
 if __name__ == "__main__":
-
     app.run()

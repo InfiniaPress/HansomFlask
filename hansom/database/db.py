@@ -5,11 +5,11 @@ import os
 
 from database.StupidityException import WeirdException
 
-if os.path.isfile("noupload.config.json"):
-    with open("noupload.config.json") as cfg:
+if os.path.isfile("../noupload.config.json"):
+    with open("../noupload.config.json") as cfg:
         conf = json.load(cfg)
 else:
-    with open("config.json") as cfg:
+    with open("../config.json") as cfg:
         conf = json.load(cfg)
 
 dbauth = PlainTextAuthProvider(username=conf['db']['username'], password=conf['db']['password'])
