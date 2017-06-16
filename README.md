@@ -21,6 +21,6 @@ This application requires Flask and Socket.IO
 
 7. Run `python db_setup.py`
 
-8. Edit config.json to the relevant values.
+8. Edit config.json to the relevant values. Username and password are anything you like, set into the database. Hostname is your own IP address. Database name is your database name.
 
 8. Run `python Hansom.py`
