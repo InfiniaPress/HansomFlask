@@ -5,16 +5,20 @@
 
 This application requires Flask and Socket.IO
 
-0. Make sure you're on Python 3.
+0. Make sure you're on Python 3 and have Java and Pip.
 
 1. Clone this repository.
 
-2. Install the requirements directly with `pip install -r requirements.txt`
+2. `cd` into HansomFlask. `cd HansomFlask`
 
-3. Download cassandra from https://cassandra.apache.org/
+3. Install the requirements directly with `pip install -r requirements.txt`
 
-4. Enter the cassandra directory, open the bin folder, and doubleclick on cassandra.bat
+4. Download cassandra from https://cassandra.apache.org/.
 
-5. Run `python db_setup.py`
+5. Enter the cassandra directory, open the bin folder, and doubleclick on cassandra.bat.
 
-6. Run `python Hansom.py`
+6. `cd` into hansom. `cd hansom`
+
+7. Run `python db_setup.py`
+
+8. Run `python Hansom.py`
