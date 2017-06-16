@@ -15,9 +15,9 @@
       <div class="container-fluid">
         <div class="navbar-header">
           {% if note.name %}
-          <a class="navbar-brand" href="#" title="Back home" contenteditable = "true" id="noteName">{{ note.name }}</a>
+          <a class="navbar-brand" href="#" title="{{ note.name }}" contenteditable = "true" id="noteName">{{ note.name }}</a>
           {% else %}
-          <a class="navbar-brand" href="#" title="Back home" contenteditable="true" id="noteName">Hansom</a>
+          <a class="navbar-brand" href="#" title="Err" contenteditable="true" id="noteName">Hansom</a>
           {% endif %}
         </div>
         <ul class="nav navbar-nav">
