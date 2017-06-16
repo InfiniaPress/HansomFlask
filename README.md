@@ -21,4 +21,6 @@ This application requires Flask and Socket.IO
 
 7. Run `python db_setup.py`
 
+8. Edit config.json to the relevant values.
+
 8. Run `python Hansom.py`
