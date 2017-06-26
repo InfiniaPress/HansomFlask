@@ -1,7 +1,7 @@
 
 
 
-CREATE TABLE infiniahansom.hansomdata (
+CREATE TABLE IF NOT EXISTS infiniahansom.hansomdata (
     username text,
     document text,
     PRIMARY KEY (username)
